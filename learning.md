@@ -37,9 +37,9 @@
 ## Certifications
 
 ## Licenses
-- Security Industry Essentials Examination (SIE)
-- Series 7: General Services Representative Examination
-- Series 66: Unified Combined State Law Examination
-- Series 99: Operations Professional Examination
+- [Security Industry Essentials Examination (SIE)] (https://files.brokercheck.finra.org/individual/individual_7373328.pdf)
+- [Series 7: General Services Representative Examination] (https://files.brokercheck.finra.org/individual/individual_7373328.pdf)
+- [Series 66: Unified Combined State Law Examination] (https://files.brokercheck.finra.org/individual/individual_7373328.pdf)
+- [Series 99: Operations Professional Examination] (https://files.brokercheck.finra.org/individual/individual_7373328.pdf)
 
 ## Conferences Attended
