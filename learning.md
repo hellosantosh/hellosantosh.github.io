@@ -36,4 +36,10 @@
 
 ## Certifications
 
+## Licenses
+- Security Industry Essentials Examination (SIE)
+- Series 7: General Services Representative Examination
+- Series 66: Unified Combined State Law Examination
+- Series 99: Operations Professional Examination
+
 ## Conferences Attended
