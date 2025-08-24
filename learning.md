@@ -1,9 +1,13 @@
 # My Learning Journey
 
-## Specializations
+## Professional Courses
+- [MIT: Designing AI Products and Services] (https://certificates.emeritus.org/2af88f2c-0d76-4750-8913-9bfd2b743785#acc.QtLFMR1G)
+- AI In Finance
+  
+## Coursera Specializations
 - [Decentralized Finance (DeFi): The Future of Finance] (https://www.coursera.org/account/accomplishments/specialization/NB5R9HP8A39L)
  
-## Courses
+## Coursera Courses
 - [Prompt Engineering for ChatGPT] (https://www.coursera.org/account/accomplishments/records/A8K7XC8FEO2D)
 - [Splunk Search Expert 101] (https://www.coursera.org/account/accomplishments/records/94LHQBPGL6HE)
 - [Decentralized Finance (DeFi) Opportunities and Risks] (https://www.coursera.org/account/accomplishments/records/EKCCR458JSUT)
@@ -35,6 +39,17 @@
   
 
 ## Certifications
+- AWS
+-- [AWS AI Practitioner Early Adopter] (https://www.credly.com/badges/d9761d97-b354-405d-9aac-b84184d86008/public_url)
+-- [AWS Certified Solutions Architect - Professional] (https://www.youracclaim.com/badges/f93f226b-806f-4ec1-94eb-1a1ce30c9fce)
+-- [AWS Certified Solutions Architect - Associate] (https://www.youracclaim.com/badges/4e64f3df-750a-4268-b7da-05e2d7199555)
+-- [AWS Certified SysOps Administrator - Associate] (https://www.youracclaim.com/badges/441f01dd-b97e-4abd-8ebe-f0c2f5874463)
+- Salesforce
+-- [Salesforce Certified Platform Administrator] (https://www.salesforce.com/trailblazer/sshanbhag1)
+-- [Salesforce Certified Platform App Builder] (https://www.salesforce.com/trailblazer/sshanbhag1)
+-- [Lightning Web Components Specialist] (https://www.salesforce.com/trailblazer/sshanbhag1)
+- Snowflake
+-- [Snowpro Core Certification] (https://www.youracclaim.com/badges/d817dde9-313b-4782-a702-ac8d8294d6f7)
 
 ## Licenses
 - [Security Industry Essentials Examination (SIE)] (https://files.brokercheck.finra.org/individual/individual_7373328.pdf)
@@ -43,3 +58,4 @@
 - [Series 99: Operations Professional Examination] (https://files.brokercheck.finra.org/individual/individual_7373328.pdf)
 
 ## Conferences Attended
+- Open Data Science Conference (East) - ODSC East - May 2024
