@@ -1,21 +1,27 @@
 // @ts-check
 import { defineConfig } from 'astro/config';
 import starlight from '@astrojs/starlight';
-import markdoc from '@astrojs/markdoc';
 
 // https://astro.build/config
 export default defineConfig({
+	// site: 'https://hellosantosh.github.io',
+	// base: '/gh-pages',
 	integrations: [
-		markdoc(),
 		starlight({
-			title: 'My Docs',
+			title: 'Santosh Shanbhag',
 			social: [{ icon: 'github', label: 'GitHub', href: 'https://github.com/withastro/starlight' }],
 			sidebar: [
 				{
-					label: 'Guides',
+					label: 'About Me',
+					// autogenerate: { directory: 'about-me' },
+
 					items: [
 						// Each item here is one entry in the navigation menu.
-						{ label: 'Example Guide', slug: 'guides/example' },
+						{ label: 'Resume', slug: 'about-me/resume' },
+						{ label: 'Learning Journey', slug: 'about-me/my-learning-journey' },
+						{ label: 'Projects', slug: 'about-me/my-projects' },
+						{ label: 'Contact Me', slug: 'about-me/contact-me' },
+						{ label: 'Example', slug: 'about-me/example' },
 					],
 				},
 				{
