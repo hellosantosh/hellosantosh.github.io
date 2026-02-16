@@ -5,7 +5,6 @@ import starlight from '@astrojs/starlight';
 // https://astro.build/config
 export default defineConfig({
 	site: 'https://hellosantosh.github.io',
-	// base: '/gh-pages',
 	integrations: [
 		starlight({
 			title: 'Santosh Shanbhag',
@@ -25,8 +24,8 @@ export default defineConfig({
 					],
 				},
 				{
-					label: 'Reference',
-					autogenerate: { directory: 'reference' },
+					label: 'Blog',
+					autogenerate: { directory: 'blog' },
 				},
 			],
 		}),

@@ -1,8 +1,18 @@
 ---
-title: Santosh Github Pages
-description: Learn more about my project in this docs site built with Starlight.
+title: Hi, I'm Santosh!
+description: Santosh's personal blog
+template: splash
+editUrl: false
+lastUpdated: false
+next: false
+prev: false
+hero:
+    tagline: Welcome to my personal blog where I share my thoughts about Programming, AI, etc.
+    image:
+        file: ../../assets/santosh.jpg
+    actions:
+        - text: Go to blog posts
+          link: /blog/
+          icon: right-arrow
+          variant: primary
 ---
-
-##### Learn more about my project in this docs site built with Starlight on Astro.
-
-Here I provide documentation, blogs, useful links, etc to help you on your learning journey. 
