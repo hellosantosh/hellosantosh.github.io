@@ -7,7 +7,7 @@ lastUpdated: false
 next: false
 prev: false
 hero:
-    tagline: Welcome to my personal blog where I share my thoughts about Programming, AI, etc.
+    tagline: Welcome to my personal blog where I share my thoughts about Architecture, Engineering, Product, and AI.
     image:
         file: ../../assets/santosh.jpg
     actions:
