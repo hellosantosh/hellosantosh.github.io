@@ -1,9 +1,0 @@
-baseURL = "https://hellosantosh.github.io/"
-languageCode = "en-us"
-title = "Santosh's Github Site"
-theme = "ananke"
-publishDir = "../"
-[markup]
-[markup.goldmark]
-[markup.goldmark.renderer]
-  unsafe = true
