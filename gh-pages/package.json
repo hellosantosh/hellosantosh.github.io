@@ -14,6 +14,6 @@
     "@astrojs/starlight": "^0.41.4",
     "@astrojs/starlight-markdoc": "^0.5.1",
     "astro": "^7.1.4",
-    "sharp": "^0.34.2"
+    "sharp": "^0.35.4"
   }
 }
