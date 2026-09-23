@@ -1,0 +1,106 @@
+# Sveltia CMS configuration: https://github.com/sveltia/sveltia-cms
+# Paths are relative to the repository root, because the site lives in gh-pages/.
+backend:
+  name: github
+  repo: hellosantosh/hellosantosh.github.io
+  branch: main
+
+site_url: https://hellosantosh.github.io
+display_url: https://hellosantosh.github.io
+logo_url: /favicon.svg
+
+media_folder: gh-pages/src/assets/posts
+public_folder: ../../assets/posts
+
+resource_fields: &resource_fields
+  - { name: title, label: Title, widget: string }
+  - { name: url, label: URL, widget: string, required: false }
+  - { name: by, label: By, widget: string, required: false }
+  - { name: note, label: Note, widget: text, required: false }
+
+learning_fields: &learning_fields
+  - { name: title, label: Section title, widget: string }
+  - { name: order, label: Order, widget: number, value_type: int }
+  - name: groups
+    label: Groups
+    widget: list
+    fields:
+      - { name: name, label: Group name, widget: string }
+      - name: items
+        label: Items
+        widget: list
+        fields:
+          - { name: title, label: Title, widget: string }
+          - { name: url, label: URL, widget: string, required: false }
+          - { name: by, label: Provider, widget: string, required: false }
+          - { name: date, label: Date, widget: string, required: false }
+
+collections:
+  - name: posts
+    label: Posts
+    label_singular: Post
+    folder: gh-pages/src/content/posts
+    create: true
+    slug: '{{slug}}'
+    summary: '{{title}} · {{date}}'
+    sortable_fields: { fields: [date, title], default: { field: date, direction: descending } }
+    fields:
+      - { name: title, label: Title, widget: string }
+      - { name: description, label: Summary, widget: text, hint: One or two sentences shown in post lists. }
+      - { name: date, label: Date, widget: datetime, time_format: false, format: YYYY-MM-DD }
+      - name: topics
+        label: Topics
+        widget: relation
+        collection: topics
+        search_fields: [title]
+        value_field: '{{slug}}'
+        display_fields: [title]
+        multiple: true
+        required: false
+      - { name: cover, label: Cover image, widget: image, required: false }
+      - { name: coverAlt, label: Cover image description, widget: string, required: false }
+      - { name: draft, label: Draft, widget: boolean, default: false, hint: Drafts are not published. }
+      - { name: body, label: Body, widget: markdown }
+
+  - name: topics
+    label: Topics
+    label_singular: Topic
+    folder: gh-pages/src/content/topics
+    create: true
+    slug: '{{slug}}'
+    fields:
+      - { name: title, label: Title, widget: string }
+      - { name: description, label: Description, widget: string }
+      - { name: order, label: Order, widget: number, value_type: int, default: 99 }
+      - { name: body, label: Introduction, widget: markdown }
+      - { name: books, label: Books, widget: list, required: false, fields: *resource_fields }
+      - { name: courses, label: Courses, widget: list, required: false, fields: *resource_fields }
+      - { name: videos, label: Videos & talks, widget: list, required: false, fields: *resource_fields }
+      - { name: podcasts, label: Podcasts, widget: list, required: false, fields: *resource_fields }
+      - { name: people, label: People, widget: list, required: false, fields: *resource_fields }
+      - { name: links, label: Articles & links, widget: list, required: false, fields: *resource_fields }
+
+  - name: pages
+    label: Pages
+    label_singular: Page
+    folder: gh-pages/src/content/pages
+    create: true
+    slug: '{{slug}}'
+    fields:
+      - { name: title, label: Title, widget: string }
+      - { name: description, label: Description, widget: string }
+      - { name: body, label: Body, widget: markdown }
+
+  - name: learning
+    label: Learning journey
+    files:
+      - name: learning
+        label: Courses, certifications & licenses
+        file: gh-pages/src/data/learning.yaml
+        fields:
+          - { name: certifications, label: Certifications, widget: object, fields: *learning_fields }
+          - { name: professional, label: Professional courses, widget: object, fields: *learning_fields }
+          - { name: ai, label: AI courses, widget: object, fields: *learning_fields }
+          - { name: coursera, label: Other courses, widget: object, fields: *learning_fields }
+          - { name: licenses, label: Licenses, widget: object, fields: *learning_fields }
+          - { name: conferences, label: Conferences, widget: object, fields: *learning_fields }

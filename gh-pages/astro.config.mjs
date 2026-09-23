@@ -1,45 +1,28 @@
 // @ts-check
 import { defineConfig } from 'astro/config';
-import starlight from '@astrojs/starlight';
+import sitemap from '@astrojs/sitemap';
 
 // https://astro.build/config
 export default defineConfig({
 	site: 'https://hellosantosh.github.io',
-	integrations: [
-		starlight({
-			title: 'Santosh Shanbhag',
-			social: [{ icon: 'github', label: 'GitHub', href: 'https://github.com/withastro/starlight' }],
-			sidebar: [
-				{
-					label: 'Areas of Interest',
-
-					items: [
-						// Each item here is one entry in the navigation menu.
-						{ label: 'Architecture', slug: 'areas-of-interest/architecture' },
-						{ label: 'Engineering', slug: 'areas-of-interest/engineering'},
-						{ label: 'Product', slug: 'areas-of-interest/product' },
-						{ label: 'AI', slug: 'areas-of-interest/ai' },
-						{ label: 'Everything Else', slug: 'areas-of-interest/everything-else' },
-					],
-				},
-				{
-					label: 'About Me',
-					// autogenerate: { directory: 'about-me' },
-
-					items: [
-						// Each item here is one entry in the navigation menu.
-						{ label: 'Resume', slug: 'about-me/resume' },
-						{ label: 'Learning Journey', slug: 'about-me/my-learning-journey' },
-						{ label: 'Projects', slug: 'about-me/my-projects' },
-						{ label: 'Contact Me', slug: 'about-me/contact-me' },
-						{ label: 'Example', slug: 'about-me/example' },
-					],
-				},
-				// {
-				// 	label: 'Areas Of Interest',
-				// 	autogenerate: { directory: 'areas-of-interest' },
-				// },
-			],
-		}),
-	],
+	integrations: [sitemap()],
+	markdown: {
+		shikiConfig: {
+			themes: { light: 'github-light', dark: 'github-dark' },
+		},
+	},
+	// Keep links from the old Starlight site working.
+	redirects: {
+		'/areas-of-interest': '/topics',
+		'/areas-of-interest/architecture': '/topics/architecture',
+		'/areas-of-interest/architecture/blog': '/topics/architecture',
+		'/areas-of-interest/engineering': '/topics/engineering',
+		'/areas-of-interest/product': '/topics/product',
+		'/areas-of-interest/ai': '/topics/ai',
+		'/areas-of-interest/everything-else': '/topics/everything-else',
+		'/about-me/resume': '/about',
+		'/about-me/contact-me': '/about',
+		'/about-me/my-projects': '/projects',
+		'/about-me/my-learning-journey': '/learning',
+	},
 });

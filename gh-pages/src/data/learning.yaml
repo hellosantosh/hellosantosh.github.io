@@ -1,0 +1,163 @@
+# Your learning journey. Each top-level key is a section on the /learning page.
+# Add an item by copying a "- title: ... / url: ..." pair. `url` and `date` are optional.
+
+professional:
+  title: Professional Courses
+  order: 1
+  groups:
+    - name: Executive education
+      items:
+        - title: "MIT: Designing AI Products and Services"
+          date: Dec 2024
+          url: https://certificates.emeritus.org/2af88f2c-0d76-4750-8913-9bfd2b743785#acc.QtLFMR1G
+        - title: Large Language Models (LLMs) in Finance
+          by: WBS Training
+          url: https://quantshub.com/content/large-language-models-llms-finance-certificate-self-paced
+
+ai:
+  title: AI Courses
+  order: 2
+  groups:
+    - name: Udemy
+      items:
+        - title: "LLM Engineering: Master AI, Large Language Models & Agents"
+          url: https://www.udemy.com/course/llm-engineering-master-ai-and-large-language-models
+        - title: The Complete Agentic AI Engineering Course (2025)
+          url: https://www.udemy.com/course/the-complete-agentic-ai-engineering-course
+    - name: Coursera / DeepLearning.AI
+      items:
+        - title: Prompt Engineering for ChatGPT
+          url: https://www.coursera.org/account/accomplishments/records/A8K7XC8FEO2D
+        - title: Neural Networks and Deep Learning
+          url: https://www.coursera.org/account/accomplishments/records/4X8XBECA0V20
+        - title: "Generative AI: Introduction and Applications"
+          url: https://www.coursera.org/account/accomplishments/records/Y98VBTZFD73N
+        - title: AI For Everyone
+          url: https://www.coursera.org/account/accomplishments/records/HF8PFXSKYAQQ
+        - title: Linear Algebra for ML & Data Science
+          url: https://www.coursera.org/account/accomplishments/records/8SPAUA4AZTVB
+        - title: Calculus for ML & Data Science
+          url: https://www.coursera.org/account/accomplishments/records/FUJ33EE478Z3
+        - title: Machine Learning
+          url: https://www.coursera.org/account/accomplishments/records/D757AX5VND27
+        - title: A Crash Course in Data Science
+          url: https://www.coursera.org/account/accomplishments/records/G7DT3VSCN9PY
+    - name: Anthropic
+      items:
+        - title: Introduction to Model Context Protocol
+          url: https://verify.skilljar.com/c/miadbhvnrgrp
+
+coursera:
+  title: Other Courses
+  order: 3
+  groups:
+    - name: Cloud
+      items:
+        - title: AWS IAM Introduction
+          url: https://www.coursera.org/account/accomplishments/verify/2RXZVHHMVD2T
+        - title: AWS Security Risk
+          url: https://www.coursera.org/account/accomplishments/records/A4345L56YRVW
+        - title: AWS Serverless Applications
+          url: https://www.coursera.org/account/accomplishments/records/8DRGVB5X6MPK
+        - title: Google Apigee API Design
+          url: https://www.coursera.org/account/accomplishments/records/3ZGJWMPTLDZ4
+        - title: Developing a Google SRE Culture
+          url: https://www.coursera.org/account/accomplishments/records/7V8YKK7J59HJ
+    - name: Security
+      items:
+        - title: Introduction to Cyber Attacks
+          url: https://www.coursera.org/account/accomplishments/records/4V6LCMUA2VGZ
+    - name: Data & Logs
+      items:
+        - title: Splunk Search Expert 101
+          url: https://www.coursera.org/account/accomplishments/records/94LHQBPGL6HE
+        - title: "Elastic Stack: Logs Processing & Visualization"
+          url: https://www.coursera.org/account/accomplishments/records/NV98VHAA6XLY
+    - name: Crypto & Blockchain
+      items:
+        - title: "Decentralized Finance (DeFi): The Future of Finance (Specialization)"
+          url: https://www.coursera.org/account/accomplishments/specialization/NB5R9HP8A39L
+        - title: Blockchain Basics
+          url: https://www.coursera.org/account/accomplishments/records/ERA6X2P2D3S7
+        - title: DeFi Opportunities and Risks
+          url: https://www.coursera.org/account/accomplishments/records/EKCCR458JSUT
+        - title: DeFi Deep Dive
+          url: https://www.coursera.org/account/accomplishments/records/7CV4WCCL6L28
+        - title: DeFi Primitives
+          url: https://www.coursera.org/account/accomplishments/records/P9SHEMT9ECHM
+        - title: DeFi Infrastructure
+          url: https://www.coursera.org/account/accomplishments/records/UUMDDZ25XHEP
+    - name: Finance
+      items:
+        - title: Risk Management in Personal Finance
+          url: https://www.coursera.org/account/accomplishments/records/6GP3D3FJMUT7
+        - title: Understanding Financial Markets
+          url: https://www.coursera.org/account/accomplishments/records/KMPM46KH6WBF
+        - title: Compare Stock Returns with Google Sheets
+          url: https://www.coursera.org/account/accomplishments/records/XMBXLLGJ7929
+    - name: UI & Frontend
+      items:
+        - title: React Basics
+          url: https://www.coursera.org/account/accomplishments/records/3ERK23YMLNRD
+        - title: Advanced React
+          url: https://www.coursera.org/account/accomplishments/records/JZZHNVLBMGS7
+        - title: Consume an API with React (Apollo & GraphQL)
+          url: https://www.coursera.org/account/accomplishments/records/T8PN359VV9T9
+    - name: Virtual Reality
+      items:
+        - title: Introduction to Virtual Reality
+          url: https://www.coursera.org/account/accomplishments/records/3RC3949NZYDW
+
+certifications:
+  title: Certifications
+  order: 0
+  groups:
+    - name: AWS
+      items:
+        - title: AWS AI Practitioner (Early Adopter)
+          url: https://www.credly.com/badges/d9761d97-b354-405d-9aac-b84184d86008/public_url
+        - title: AWS Solutions Architect – Professional
+          url: https://www.youracclaim.com/badges/f93f226b-806f-4ec1-94eb-1a1ce30c9fce
+        - title: AWS Solutions Architect – Associate
+          url: https://www.youracclaim.com/badges/4e64f3df-750a-4268-b7da-05e2d7199555
+        - title: AWS SysOps Administrator – Associate
+          url: https://www.youracclaim.com/badges/441f01dd-b97e-4abd-8ebe-f0c2f5874463
+    - name: Salesforce
+      items:
+        - title: Platform Administrator
+          url: https://www.salesforce.com/trailblazer/sshanbhag1
+        - title: Platform App Builder
+          url: https://www.salesforce.com/trailblazer/sshanbhag1
+        - title: Lightning Web Components Specialist
+    - name: Snowflake
+      items:
+        - title: SnowPro Core Certification
+          url: https://www.youracclaim.com/badges/d817dde9-313b-4782-a702-ac8d8294d6f7
+
+licenses:
+  title: Licenses
+  order: 4
+  groups:
+    - name: FINRA
+      items:
+        - title: Securities Industry Essentials (SIE)
+          url: https://files.brokercheck.finra.org/individual/individual_7373328.pdf
+        - title: Series 7 – General Securities Representative
+          url: https://files.brokercheck.finra.org/individual/individual_7373328.pdf
+        - title: Series 66 – Uniform Combined State Law
+          url: https://files.brokercheck.finra.org/individual/individual_7373328.pdf
+        - title: Series 99 – Operations Professional
+          url: https://files.brokercheck.finra.org/individual/individual_7373328.pdf
+
+conferences:
+  title: Conferences Attended
+  order: 5
+  groups:
+    - name: Conferences
+      items:
+        - title: Open Data Science Conference (ODSC East)
+          date: May 2026
+        - title: Open Data Science Conference (ODSC East)
+          date: May 2024
+        - title: Salesforce Dreamforce
+          date: Nov 2019

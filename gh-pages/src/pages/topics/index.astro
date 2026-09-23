@@ -1,0 +1,23 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import TopicGrid from '../../components/TopicGrid.astro';
+import { getPosts, getTopics, postsInTopic } from '../../lib/content';
+
+const posts = await getPosts();
+const topics = await getTopics();
+const counts = Object.fromEntries(topics.map((t) => [t.id, postsInTopic(posts, t.id).length]));
+---
+
+<BaseLayout title="Topics" description="Architecture, engineering, product, AI, and everything else.">
+	<div class="container">
+		<header class="page-header">
+			<p class="eyebrow">Areas of interest</p>
+			<h1>Topics</h1>
+			<p class="lede">
+				The subjects I keep coming back to. Each one collects my writing along with the books, courses, and talks
+				that shaped my thinking.
+			</p>
+		</header>
+		<TopicGrid topics={topics} counts={counts} />
+	</div>
+</BaseLayout>

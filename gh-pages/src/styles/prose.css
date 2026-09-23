@@ -1,0 +1,128 @@
+/* Typography for rendered Markdown. */
+.prose {
+	font-size: 1.125rem;
+	line-height: 1.75;
+}
+
+.prose > :first-child {
+	margin-top: 0;
+}
+
+.prose h2 {
+	font-size: 1.75rem;
+	margin: 2.5em 0 0.6em;
+}
+
+.prose h3 {
+	font-size: 1.35rem;
+	margin: 2em 0 0.5em;
+}
+
+.prose h4 {
+	font-family: var(--font-sans);
+	font-size: 1rem;
+	font-weight: 600;
+	margin: 1.75em 0 0.5em;
+}
+
+.prose p,
+.prose ul,
+.prose ol,
+.prose blockquote,
+.prose pre,
+.prose table,
+.prose figure {
+	margin: 0 0 1.4em;
+}
+
+.prose ul,
+.prose ol {
+	padding-left: 1.4em;
+}
+
+.prose li {
+	margin-bottom: 0.4em;
+}
+
+.prose li::marker {
+	color: var(--faint);
+}
+
+.prose a {
+	text-decoration-color: var(--accent);
+}
+
+.prose strong {
+	font-weight: 600;
+}
+
+.prose blockquote {
+	border-left: 3px solid var(--accent);
+	padding: 0.1em 0 0.1em 1.2em;
+	font-family: var(--font-serif);
+	font-size: 1.25rem;
+	font-style: italic;
+	color: var(--muted);
+}
+
+.prose hr {
+	border: 0;
+	height: 1px;
+	background: var(--border);
+	margin: 3em 0;
+}
+
+.prose img {
+	border-radius: var(--radius);
+	margin-inline: auto;
+}
+
+.prose :not(pre) > code {
+	font-family: var(--font-mono);
+	font-size: 0.85em;
+	background: var(--accent-soft);
+	color: var(--text);
+	padding: 0.15em 0.4em;
+	border-radius: 5px;
+}
+
+.prose pre {
+	font-family: var(--font-mono);
+	font-size: 0.875rem;
+	line-height: 1.6;
+	padding: 1.1rem 1.25rem;
+	border-radius: var(--radius);
+	border: 1px solid var(--border);
+	overflow-x: auto;
+}
+
+.prose table {
+	width: 100%;
+	border-collapse: collapse;
+	font-size: 0.95rem;
+	display: block;
+	overflow-x: auto;
+}
+
+.prose th,
+.prose td {
+	text-align: left;
+	padding: 0.6rem 0.9rem;
+	border-bottom: 1px solid var(--border);
+	vertical-align: top;
+}
+
+.prose th {
+	font-weight: 600;
+	color: var(--muted);
+	font-size: 0.8rem;
+	letter-spacing: 0.04em;
+	text-transform: uppercase;
+}
+
+/* Shiki dual themes: use the dark palette when the site is in dark mode. */
+:root[data-theme='dark'] .astro-code,
+:root[data-theme='dark'] .astro-code span {
+	color: var(--shiki-dark) !important;
+	background-color: var(--shiki-dark-bg) !important;
+}

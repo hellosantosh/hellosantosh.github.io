@@ -1,0 +1,116 @@
+---
+import { render } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PostList from '../../components/PostList.astro';
+import { getPosts, getTopics, postsInTopic, type Topic } from '../../lib/content';
+import '../../styles/prose.css';
+
+export async function getStaticPaths() {
+	const topics = await getTopics();
+	return topics.map((topic) => ({ params: { id: topic.id }, props: { topic } }));
+}
+
+interface Props {
+	topic: Topic;
+}
+
+const { topic } = Astro.props;
+const { Content } = await render(topic);
+const posts = postsInTopic(await getPosts(), topic.id);
+
+const shelves = [
+	{ key: 'books', label: 'Books' },
+	{ key: 'courses', label: 'Courses' },
+	{ key: 'videos', label: 'Videos & talks' },
+	{ key: 'podcasts', label: 'Podcasts' },
+	{ key: 'people', label: 'People I learn from' },
+	{ key: 'links', label: 'Articles & links' },
+] as const;
+const filled = shelves.filter((s) => topic.data[s.key].length > 0);
+---
+
+<BaseLayout title={topic.data.title} description={topic.data.description}>
+	<div class="container">
+		<header class="page-header">
+			<a href="/topics/" class="back">← All topics</a>
+			<h1>{topic.data.title}</h1>
+			<p class="lede">{topic.data.description}</p>
+		</header>
+		<div class="prose intro"><Content /></div>
+
+		<section class="section">
+			<div class="section-head"><h2>Writing</h2></div>
+			<PostList posts={posts} empty={`No ${topic.data.title.toLowerCase()} posts yet. They're on the way.`} />
+		</section>
+
+		{
+			filled.map((shelf) => (
+				<section class="section">
+					<div class="section-head">
+						<h2>{shelf.label}</h2>
+					</div>
+					<ul class="shelf">
+						{topic.data[shelf.key].map((r) => {
+							const Tag = r.url ? 'a' : 'div';
+							return (
+								<li>
+									<Tag class="card resource" href={r.url} rel={r.url ? 'noopener' : undefined}>
+										<h3>
+											{r.title}
+											{r.url && <span aria-hidden="true"> ↗</span>}
+										</h3>
+										{r.by && <p class="by">{r.by}</p>}
+										{r.note && <p class="note">{r.note}</p>}
+									</Tag>
+								</li>
+							);
+						})}
+					</ul>
+				</section>
+			))
+		}
+	</div>
+</BaseLayout>
+
+<style>
+	.back {
+		display: inline-block;
+		font-size: 0.9rem;
+		color: var(--muted);
+		text-decoration: none;
+		margin-bottom: 2rem;
+	}
+	.intro {
+		max-width: var(--narrow);
+	}
+	.shelf {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+		display: grid;
+		grid-template-columns: repeat(auto-fill, minmax(min(100%, 15rem), 1fr));
+		gap: 1rem;
+	}
+	.resource {
+		height: 100%;
+		padding: 1.1rem 1.25rem;
+	}
+	.resource h3 {
+		font-size: 1.15rem;
+		margin: 0;
+	}
+	.resource h3 span {
+		color: var(--accent);
+		font-size: 0.9rem;
+	}
+	.by {
+		margin: 0.3rem 0 0;
+		font-size: 0.88rem;
+		color: var(--muted);
+	}
+	.note {
+		margin: 0.6rem 0 0;
+		font-size: 0.92rem;
+		color: var(--muted);
+	}
+</style>

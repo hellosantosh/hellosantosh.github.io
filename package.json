@@ -1,0 +1,12 @@
+{
+  "name": "hellosantosh.github.io",
+  "private": true,
+  "description": "Runs the site's scripts from the repo root. The site itself lives in gh-pages/.",
+  "scripts": {
+    "postinstall": "npm install --prefix gh-pages",
+    "dev": "npm run dev --prefix gh-pages",
+    "build": "npm run build --prefix gh-pages",
+    "preview": "npm run preview --prefix gh-pages",
+    "check": "npm run check --prefix gh-pages"
+  }
+}

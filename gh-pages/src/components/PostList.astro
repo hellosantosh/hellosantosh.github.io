@@ -1,0 +1,96 @@
+---
+import { formatDate, type Post } from '../lib/content';
+
+interface Props {
+	posts: Post[];
+	empty?: string;
+}
+
+const { posts, empty = 'New writing is on the way. Check back soon.' } = Astro.props;
+---
+
+{
+	posts.length === 0 ? (
+		<p class="empty">{empty}</p>
+	) : (
+		<ol class="posts">
+			{posts.map((post) => (
+				<li>
+					<a href={`/blog/${post.id}/`} class="post">
+						<time datetime={post.data.date.toISOString()}>{formatDate(post.data.date, 'short')}</time>
+						<div>
+							<h3>
+								{post.data.title}
+								{post.data.draft && <span class="draft">Draft</span>}
+							</h3>
+							<p>{post.data.description}</p>
+						</div>
+					</a>
+				</li>
+			))}
+		</ol>
+	)
+}
+
+<style>
+	.posts {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+	}
+	.post {
+		display: grid;
+		grid-template-columns: 7.5rem 1fr;
+		gap: 1.5rem;
+		padding: 1.1rem 1rem;
+		margin-inline: -1rem;
+		border-radius: 12px;
+		text-decoration: none;
+		transition: background-color 0.15s ease;
+	}
+	.post:hover {
+		color: inherit;
+		background: var(--surface);
+	}
+	.post:hover h3 {
+		color: var(--accent);
+	}
+	time {
+		font-size: 0.85rem;
+		color: var(--faint);
+		padding-top: 0.3rem;
+		font-variant-numeric: tabular-nums;
+	}
+	h3 {
+		font-size: 1.3rem;
+		margin: 0 0 0.3rem;
+		transition: color 0.15s ease;
+	}
+	p {
+		margin: 0;
+		color: var(--muted);
+		font-size: 0.97rem;
+	}
+	.draft {
+		font-family: var(--font-sans);
+		font-size: 0.7rem;
+		font-weight: 600;
+		text-transform: uppercase;
+		letter-spacing: 0.08em;
+		color: var(--accent);
+		border: 1px solid currentColor;
+		border-radius: 999px;
+		padding: 0.05rem 0.5rem;
+		margin-left: 0.6rem;
+		vertical-align: middle;
+	}
+	@media (max-width: 560px) {
+		.post {
+			grid-template-columns: 1fr;
+			gap: 0.25rem;
+		}
+		time {
+			padding-top: 0;
+		}
+	}
+</style>

@@ -1,0 +1,195 @@
+---
+import { Image } from 'astro:assets';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PostList from '../components/PostList.astro';
+import TopicGrid from '../components/TopicGrid.astro';
+import portrait from '../assets/santosh.jpg';
+import { getPosts, getTopics, postsInTopic } from '../lib/content';
+import { site } from '../site.config';
+
+const posts = await getPosts();
+const topics = await getTopics();
+const counts = Object.fromEntries(topics.map((t) => [t.id, postsInTopic(posts, t.id).length]));
+---
+
+<BaseLayout>
+	<section class="hero container">
+		<div class="intro">
+			<h1>Hi, I'm <em>Santosh</em>.</h1>
+			<p class="tagline">{site.tagline}</p>
+			<div class="actions">
+				<a class="button primary" href="/blog/">Read the writing</a>
+				<a class="button" href="/about/">About me</a>
+			</div>
+			<ul class="socials">
+				{
+					site.socials.map((s) => (
+						<li>
+							<a href={s.href} rel="me noopener">
+								{s.label} ↗
+							</a>
+						</li>
+					))
+				}
+			</ul>
+		</div>
+		<div class="portrait">
+			<Image
+				src={portrait}
+				alt="Santosh sitting in an armchair by a window"
+				widths={[320, 480]}
+				sizes="(max-width: 760px) 60vw, 320px"
+				loading="eager"
+			/>
+		</div>
+	</section>
+
+	<section class="section container">
+		<div class="section-head">
+			<h2>Latest writing</h2>
+			<a href="/blog/">All posts →</a>
+		</div>
+		<PostList posts={posts.slice(0, 5)} />
+	</section>
+
+	<section class="section container">
+		<div class="section-head">
+			<h2>Areas of interest</h2>
+			<a href="/topics/">All topics →</a>
+		</div>
+		<TopicGrid topics={topics} counts={counts} />
+	</section>
+
+	<section class="section container">
+		<a href="/learning/" class="card learning">
+			<div>
+				<p class="eyebrow">Always learning</p>
+				<h2>Courses, certifications, and licenses</h2>
+				<p>From MIT and AWS to FINRA, here's what I've studied along the way.</p>
+			</div>
+			<span class="arrow" aria-hidden="true">→</span>
+		</a>
+	</section>
+</BaseLayout>
+
+<style>
+	.hero {
+		display: grid;
+		grid-template-columns: 1fr auto;
+		align-items: center;
+		gap: clamp(2rem, 6vw, 5rem);
+		padding-block: clamp(3rem, 9vw, 6.5rem) clamp(2rem, 5vw, 3rem);
+	}
+	h1 {
+		font-size: clamp(2.8rem, 7.5vw, 4.75rem);
+		line-height: 1.02;
+		margin: 0 0 1.25rem;
+		letter-spacing: -0.025em;
+	}
+	h1 em {
+		color: var(--accent);
+	}
+	.tagline {
+		font-size: clamp(1.15rem, 2.2vw, 1.35rem);
+		color: var(--muted);
+		max-width: 34rem;
+		margin: 0 0 2rem;
+	}
+	.actions {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.75rem;
+		margin-bottom: 1.75rem;
+	}
+	.button {
+		display: inline-flex;
+		align-items: center;
+		padding: 0.7rem 1.25rem;
+		border-radius: 999px;
+		border: 1px solid var(--border);
+		background: var(--surface);
+		font-weight: 500;
+		font-size: 0.95rem;
+		text-decoration: none;
+	}
+	.button.primary {
+		background: var(--text);
+		border-color: var(--text);
+		color: var(--bg);
+	}
+	.button.primary:hover {
+		background: var(--accent);
+		border-color: var(--accent);
+		color: var(--bg);
+	}
+	.socials {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 1.25rem;
+		list-style: none;
+		margin: 0;
+		padding: 0;
+		font-size: 0.9rem;
+	}
+	.socials a {
+		color: var(--muted);
+		text-decoration: none;
+	}
+	.socials a:hover {
+		color: var(--accent);
+	}
+	.portrait {
+		position: relative;
+		width: clamp(14rem, 26vw, 20rem);
+	}
+	.portrait::before {
+		content: '';
+		position: absolute;
+		inset: 1.25rem 1.25rem -1.25rem -1.25rem;
+		border-radius: 28px;
+		background: var(--accent-soft);
+		z-index: -1;
+	}
+	.portrait :global(img) {
+		width: 100%;
+		aspect-ratio: 4 / 5;
+		object-fit: cover;
+		object-position: 50% 55%;
+		border-radius: 28px;
+		box-shadow: var(--shadow);
+	}
+	.learning {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: 1.5rem;
+		padding: clamp(1.5rem, 4vw, 2.5rem);
+		background: linear-gradient(135deg, var(--accent-soft), var(--surface) 70%);
+	}
+	.learning h2 {
+		font-size: clamp(1.5rem, 3vw, 2rem);
+		margin: 0 0 0.4rem;
+	}
+	.learning p:last-child {
+		margin: 0;
+		color: var(--muted);
+	}
+	.arrow {
+		font-size: 1.75rem;
+		color: var(--accent);
+		transition: transform 0.2s ease;
+	}
+	.learning:hover .arrow {
+		transform: translateX(4px);
+	}
+
+	@media (max-width: 760px) {
+		.hero {
+			grid-template-columns: 1fr;
+		}
+		.portrait {
+			order: -1;
+			width: min(15rem, 60vw);
+		}
+	}
+</style>
